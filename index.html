@@ -3,8 +3,8 @@
 <html data-wf-domain="www.matthewtancik.com" data-wf-page="5e6fb768456f961381500a5f" data-wf-site="51e0d73d83d06baa7a00000f">
 <head>
   <meta charset="utf-8"/>
-  <title>Saliency-Driven Editing</title>
-  <meta content="Learning to Reduce Visual Distraction with Deep Saliency Models" name="description"/>
+  <title>Deep Saliency Prior</title>
+  <meta content="Deep Saliency Prior" name="description"/>
   <meta content="Saliency-Driven Editing" property="og:title"/>
   <meta content="An end-to-end method for cross-structural motion retargeting" property="og:description"/>
   <meta content="summary" name="twitter:card"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
@@ -23,50 +23,35 @@
 <body>
   <div class="section hero nerf-_v2">
     <div class="container-2 nerf_header_v2 w-container">
-      <h1 class="nerf_title_v2">Deep Saliency Prior</h1>
+      <h1 class="nerf_title_v2">Deep Saliency Prior for Reducing Visual Distraction</h1>
       <br></br>
-<!--      <h1 class="nerf_subheader_v2"></h1>-->
-      <div class="nerf_authors_list_single w-row">
-        <div class="w-col w-col-3 w-col-small-3 w-col-tiny-3"><a href="http://kfiraberman.github.io/" target="_blank" class="nerf_authors_v2">Kfir Aberman<span class="text-span_nerf_star">*</span></a></div>
+<!--         <div class="nerf_authors_list_single w-row">
+          <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4"><a href="http://kfiraberman.github.io/" target="_blank" class="nerf_authors_v2">Kfir Aberman<span class="text-span_nerf_star">*</span></a></div>
+          <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4"><a href="https://research.google/people/106417/" target="_blank" class="nerf_authors_v2">Junfeng He<span class="text-span_nerf_star">*</span></a></div>
+          <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4"><a href="https://yossigandelsman.github.io/" target="_blank" class="nerf_authors_v2">Yossi Gandelsman</a></div>
+        </div>
+        <div class="nerf_authors_list_single w-row">
+          <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4"><a href="https://research.google/people/InbarMosseri/" target="_blank" class="nerf_authors_v2">Inbar Mossari</a></div>
+          <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4"><a href="http://graphics.stanford.edu/~dejacobs/" target="_blank" class="nerf_authors_v2">David E. Jacobs<span class="text-span_nerf">5,1</span></a></div>
+          <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4"><a href="https://research.google/people/KaiKohlhoff/" target="_blank" class="nerf_authors_v2">Kai Kohlhoff<span class="text-span_nerf">2,1</span></a></div>
+        </div>
+        <div class="nerf_authors_list_single w-row">
+          <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6"><a href="https://research.google/people/106214/" target="_blank" class="nerf_authors_v2">Yael Pritch<span class="text-span_nerf">2,1</span></a></div>
+          <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6"><a href="http://people.csail.mit.edu/mrub/" target="_blank" class="nerf_authors_v2">Michael Rubinstein<span class="text-span_nerf">2,1</span></a></div>
+        </div> -->
+        <div class="nerf_authors_list_single w-row">
+          <div class="w-col w-col-3 w-col-small-3 w-col-tiny-3"><a href="http://kfiraberman.github.io/" target="_blank" class="nerf_authors_v2">Kfir Aberman<span class="text-span_nerf_star">*</span></a></div>
           <div class="w-col w-col-3 w-col-small-3 w-col-tiny-3"><a href="https://research.google/people/106417/" target="_blank" class="nerf_authors_v2">Junfeng He<span class="text-span_nerf_star">*</span></a></div>
           <div class="w-col w-col-3 w-col-small-3 w-col-tiny-3"><a href="https://yossigandelsman.github.io/" target="_blank" class="nerf_authors_v2">Yossi Gandelsman</a></div>
           <div class="w-col w-col-3 w-col-small-3 w-col-tiny-3"><a href="https://research.google/people/InbarMosseri/" target="_blank" class="nerf_authors_v2">Inbar Mossari</a></div>
-          <!-- <div class="w-col w-col-2 w-col-small-4 w-col-tiny-4"><a href="https://www.cs.tau.ac.il/~dcor/" target="_blank" class="nerf_authors_v2">David E. Jacobs<span class="text-span_nerf">5,1</span></a></div> -->
-          <!-- <div class="w-col w-col-2 w-col-small-4 w-col-tiny-4"><a href="https://cfcs.pku.edu.cn/baoquan" target="_blank" class="nerf_authors_v2">Kai Kohlhoff<span class="text-span_nerf">2,1</span></a></div> -->
         </div>
         <div class="nerf_authors_list_single w-row">
-        <!-- <div class="w-col w-col-3 w-col-small-3 w-col-tiny-3"><a href="http://kfiraberman.github.io/" target="_blank" class="nerf_authors_v2">Kfir Aberman<span class="text-span_nerf_star">*</span></a></div> -->
-          <!-- <div class="w-col w-col-3 w-col-small-3 w-col-tiny-3"><a href="https://peizhuoli.github.io/" target="_blank" class="nerf_authors_v2">Junfeng He<span class="text-span_nerf_star">*</span></a></div> -->
-          <!-- <div class="w-col w-col-3 w-col-small-3 w-col-tiny-3"><a href="https://www.cse.huji.ac.il/~danix/" target="_blank" class="nerf_authors_v2">Yossi Gandelsman</a></div> -->
-          <!-- <div class="w-col w-col-3 w-col-small-3 w-col-tiny-3"><a href="https://igl.ethz.ch/people/sorkine/" target="_blank" class="nerf_authors_v2">Inbar Mossari</a></div> -->
           <div class="w-col w-col-3 w-col-small-3 w-col-tiny-3"><a href="http://graphics.stanford.edu/~dejacobs/" target="_blank" class="nerf_authors_v2">David E. Jacobs<span class="text-span_nerf">5,1</span></a></div>
           <div class="w-col w-col-3 w-col-small-3 w-col-tiny-3"><a href="https://research.google/people/KaiKohlhoff/" target="_blank" class="nerf_authors_v2">Kai Kohlhoff<span class="text-span_nerf">2,1</span></a></div>
           <div class="w-col w-col-3 w-col-small-3 w-col-tiny-3"><a href="https://research.google/people/106214/" target="_blank" class="nerf_authors_v2">Yael Pritch<span class="text-span_nerf">2,1</span></a></div>
           <div class="w-col w-col-3 w-col-small-3 w-col-tiny-3"><a href="http://people.csail.mit.edu/mrub/" target="_blank" class="nerf_authors_v2">Michael Rubinstein<span class="text-span_nerf">2,1</span></a></div>
         </div>
-   <!--      <div class="nerf_authors_list_single w-row">
-        <div class="w-col w-col-2 w-col-small-4 w-col-tiny-6"><a href="http://kfiraberman.github.io/" target="_blank" class="nerf_authors_v2">Kfir Aberman<span class="text-span_nerf_star">*</span><span class="superscript text-span_nerf">1,5*</span></a></div>
-          <div class="w-col w-col-2 w-col-small-4 w-col-tiny-6"><a href="https://peizhuoli.github.io/" target="_blank" class="nerf_authors_v2">Junfeng He<span class="text-span_nerf_star">*</span><span class="superscript text-span_nerf">2,1*</span></a></div>
-          <div class="w-col w-col-2 w-col-small-4 w-col-tiny-6"><a href="https://www.cse.huji.ac.il/~danix/" target="_blank" class="nerf_authors_v2">Yossi Gandelsman<span class="text-span_nerf">3,1</span><span class="superscript"></span></a></div>
-          <div class="w-col w-col-2 w-col-small-4 w-col-tiny-6"><a href="https://igl.ethz.ch/people/sorkine/" target="_blank" class="nerf_authors_v2">Inbar Mossari<span class="text-span_nerf">4,1</span><span class="superscript"></span></a></div>
-          <div class="w-col w-col-2 w-col-small-4 w-col-tiny-6"><a href="https://www.cs.tau.ac.il/~dcor/" target="_blank" class="nerf_authors_v2">David E. Jacobs<span class="text-span_nerf">5,1</span></a></div>
-          <div class="w-col w-col-2 w-col-small-4 w-col-tiny-6"><a href="https://cfcs.pku.edu.cn/baoquan" target="_blank" class="nerf_authors_v2">Kai Kohlhoff<span class="text-span_nerf">2,1</span></a></div>
-        </div> -->
-<!--           <div class="columns-6 w-row"><div class="nerf_mobile_col_inst w-col w-col-4 w-col-small-4 w-col-tiny-4">
-            <div class="nerf_mobile_inst"><span class="text-span_nerf">1 </span>Beijing Film Academy</div></div>
-            <div class="nerf_mobile_col_inst w-col w-col-4 w-col-small-4 w-col-tiny-4"><div class="nerf_mobile_inst"><span class="text-span_nerf">2</span>Peking University</div></div>
-            <div class="nerf_mobile_col_inst w-col w-col-4 w-col-small-4 w-col-tiny-4"><div class="nerf_mobile_inst"><span class="text-span_nerf">3</span>Hebrew University</div></div>
-            <div class="nerf_mobile_col_inst w-col w-col-4 w-col-small-4 w-col-tiny-4"><div class="nerf_mobile_inst"><span class="text-span_nerf">4</span>ETH Zurich</div></div>
-            <div class="nerf_mobile_col_inst w-col w-col-4 w-col-small-4 w-col-tiny-4"><div class="nerf_mobile_inst"><span class="text-span_nerf">5</span>Tel-Aviv University</div></div>
-          </div>
-            <div class="nerf_authors_list_single nerf_authors_affiliation w-row">
-              <div class="w-col w-col-2"><h1 class="nerf_affiliation_v2">Beijing Film Academy</h1></div>
-              <div class="column w-col w-col-2"><h1 class="nerf_affiliation_v2">Peking University</h1></div>
-              <div class="w-col w-col-2"><h1 class="nerf_affiliation_v2">Hebrew University</h1></div>
-              <div class="w-col w-col-2"><h1 class="nerf_affiliation_v2">ETH Zurich</h1></div>
-              <div class="w-col w-col-2"><h1 class="nerf_affiliation_v2">Tel-Aviv University</h1></div>
-              <div class="w-col w-col-2"><h1 class="nerf_affiliation_v2">Peking University</h1></div>
-            </div> -->
+
               <div class="div-block-10"><div class="nerf_affiliation_v2">Google Research</div></div>
               <br></br>
               <!-- <img src="./images/teaser.png" alt=""/> -->
