@@ -1,0 +1,2073 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Paper 7437: Learning to Reduce Visual Distraction with Deep Saliency Models</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="container">
+  <h1 align="center"> Deep Saliency Prior for Reducing Visual Distraction</h1>
+  <h2 align="center">Supplementary Material</h2>
+  <p align="center">&nbsp;</p>
+  <ul>
+    <li><a href="supplementary.pdf" target="_blank">Supplementary PDF</a> - with more details on the method, the user studies we conducted, and additional baselines.</li>
+    <br />
+    <li><a href="#video">Example result on a video conference call (Figure 8)</a></li>
+    <li><a href="#results_increase">Results - reducing saliency (Figure 1, Figure 6)</a></li>
+    <li><a href="#results_decrease">Results - increasing saliency (Figure 7)</a></li>
+    <li><a href="#eye_gaze">Eye-gaze study results (figure 9)</a></li>
+    <li><a href="#comparison">Comparison with &quot;Look Here!&quot; [31] (figure 10)</a></li>
+  </ul>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <hr />
+  <h2 align="left"><a name="video" id="video"></a>Example result on a video conference call</h2>
+  <p align="left">We apply our approach to a video conference call, aiming at reducing background clutter while maintaining the overall appearance of the room or the office.  We segment the regions where the predicted saliency is above a threshold (0.15).  For each distracting region, we apply our different operators and select the one that yields the lowest saliency value within the region, then apply the per-distractor parameters to the corresponding regions in all the frames (processing the video frame by frame independetly).</p>
+  <p align="left">&nbsp;</p>
+  <table width="600" border="0" align="center">
+    <tbody>
+      <tr>
+        <td align="center"><video width="800" controls="controls" loop="loop">
+            <source src="ours_vs_bg_blur.mp4" type="video/mp4" />
+          </video></td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="left">&nbsp;</p>
+  <p align="left">&nbsp;</p>
+  <hr />
+  <h2 align="left"><a name="results_increase" id="results_increase"></a>Results - reducing saliency</h2>
+  <p align="left">Results for reducing saliency using several differential operators we explored (recolorization, multi-layer convolution, warping, GAN). For each example, we set the target saliency within the masked region (second column from left) to be 0 (zero). Click on each image to view it in larger size.</p>
+  <p align="left">&nbsp;</p>
+  <h3 align="left">Recolorization operator:</h3>
+  <table width="200" border="0" align="center">
+    <tbody>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Mask</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of result</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/recolor/00000PORTRAIT_00000_BURST20181215122053838_original.jpeg"><img src="supp_results/recolor/00000PORTRAIT_00000_BURST20181215122053838_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00000PORTRAIT_00000_BURST20181215122053838_mask.jpeg"><img src="supp_results/recolor/00000PORTRAIT_00000_BURST20181215122053838_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00000PORTRAIT_00000_BURST20181215122053838_original_heatmap.jpeg"><img src="supp_results/recolor/00000PORTRAIT_00000_BURST20181215122053838_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00000PORTRAIT_00000_BURST20181215122053838_output.jpeg"><img src="supp_results/recolor/00000PORTRAIT_00000_BURST20181215122053838_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00000PORTRAIT_00000_BURST20181215122053838_output_heatmap.jpeg"><img src="supp_results/recolor/00000PORTRAIT_00000_BURST20181215122053838_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/recolor/IMG_20190424_112957_1_original.jpeg"><img src="supp_results/recolor/IMG_20190424_112957_1_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20190424_112957_1_mask.jpeg"><img src="supp_results/recolor/IMG_20190424_112957_1_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20190424_112957_1_original_heatmap.jpeg"><img src="supp_results/recolor/IMG_20190424_112957_1_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20190424_112957_1_output.jpeg"><img src="supp_results/recolor/IMG_20190424_112957_1_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20190424_112957_1_output_heatmap.jpeg"><img src="supp_results/recolor/IMG_20190424_112957_1_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/recolor/00000PORTRAIT_00000_BURST20181216084620047_original.jpeg"><img src="supp_results/recolor/00000PORTRAIT_00000_BURST20181216084620047_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00000PORTRAIT_00000_BURST20181216084620047_mask.jpeg"><img src="supp_results/recolor/00000PORTRAIT_00000_BURST20181216084620047_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00000PORTRAIT_00000_BURST20181216084620047_original_heatmap.jpeg"><img src="supp_results/recolor/00000PORTRAIT_00000_BURST20181216084620047_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00000PORTRAIT_00000_BURST20181216084620047_output.jpeg"><img src="supp_results/recolor/00000PORTRAIT_00000_BURST20181216084620047_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00000PORTRAIT_00000_BURST20181216084620047_output_heatmap.jpeg"><img src="supp_results/recolor/00000PORTRAIT_00000_BURST20181216084620047_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/recolor/00000PORTRAIT_00000_BURST20180727103012334_original.jpeg"><img src="supp_results/recolor/00000PORTRAIT_00000_BURST20180727103012334_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00000PORTRAIT_00000_BURST20180727103012334_mask.jpeg"><img src="supp_results/recolor/00000PORTRAIT_00000_BURST20180727103012334_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00000PORTRAIT_00000_BURST20180727103012334_original_heatmap.jpeg"><img src="supp_results/recolor/00000PORTRAIT_00000_BURST20180727103012334_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00000PORTRAIT_00000_BURST20180727103012334_output.jpeg"><img src="supp_results/recolor/00000PORTRAIT_00000_BURST20180727103012334_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00000PORTRAIT_00000_BURST20180727103012334_output_heatmap.jpeg"><img src="supp_results/recolor/00000PORTRAIT_00000_BURST20180727103012334_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/recolor/IMG_20180923_115753_original.jpeg"><img src="supp_results/recolor/IMG_20180923_115753_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20180923_115753_mask.jpeg"><img src="supp_results/recolor/IMG_20180923_115753_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20180923_115753_original_heatmap.jpeg"><img src="supp_results/recolor/IMG_20180923_115753_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20180923_115753_output.jpeg"><img src="supp_results/recolor/IMG_20180923_115753_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20180923_115753_output_heatmap.jpeg"><img src="supp_results/recolor/IMG_20180923_115753_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/recolor/IMG_20171228_083216_original.jpeg"><img src="supp_results/recolor/IMG_20171228_083216_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20171228_083216_mask.jpeg"><img src="supp_results/recolor/IMG_20171228_083216_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20171228_083216_original_heatmap.jpeg"><img src="supp_results/recolor/IMG_20171228_083216_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20171228_083216_output.jpeg"><img src="supp_results/recolor/IMG_20171228_083216_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20171228_083216_output_heatmap.jpeg"><img src="supp_results/recolor/IMG_20171228_083216_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/recolor/IMG_20191201_172719_original.jpeg"><img src="supp_results/recolor/IMG_20191201_172719_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20191201_172719_mask.jpeg"><img src="supp_results/recolor/IMG_20191201_172719_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20191201_172719_original_heatmap.jpeg"><img src="supp_results/recolor/IMG_20191201_172719_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20191201_172719_output.jpeg"><img src="supp_results/recolor/IMG_20191201_172719_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20191201_172719_output_heatmap.jpeg"><img src="supp_results/recolor/IMG_20191201_172719_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/recolor/00000IMG_00000_BURST20190114140247495_COVER_original.jpeg"><img src="supp_results/recolor/00000IMG_00000_BURST20190114140247495_COVER_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00000IMG_00000_BURST20190114140247495_COVER_mask.jpeg"><img src="supp_results/recolor/00000IMG_00000_BURST20190114140247495_COVER_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00000IMG_00000_BURST20190114140247495_COVER_original_heatmap.jpeg"><img src="supp_results/recolor/00000IMG_00000_BURST20190114140247495_COVER_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00000IMG_00000_BURST20190114140247495_COVER_output.jpeg"><img src="supp_results/recolor/00000IMG_00000_BURST20190114140247495_COVER_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00000IMG_00000_BURST20190114140247495_COVER_output_heatmap.jpeg"><img src="supp_results/recolor/00000IMG_00000_BURST20190114140247495_COVER_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/recolor/IMG_20191128_155754_original.jpeg"><img src="supp_results/recolor/IMG_20191128_155754_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20191128_155754_mask.jpeg"><img src="supp_results/recolor/IMG_20191128_155754_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20191128_155754_original_heatmap.jpeg"><img src="supp_results/recolor/IMG_20191128_155754_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20191128_155754_output.jpeg"><img src="supp_results/recolor/IMG_20191128_155754_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/IMG_20191128_155754_output_heatmap.jpeg"><img src="supp_results/recolor/IMG_20191128_155754_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/recolor/00100lPORTRAIT_00100_BURST20190114140133685_COVER_original.jpeg"><img src="supp_results/recolor/00100lPORTRAIT_00100_BURST20190114140133685_COVER_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00100lPORTRAIT_00100_BURST20190114140133685_COVER_mask.jpeg"><img src="supp_results/recolor/00100lPORTRAIT_00100_BURST20190114140133685_COVER_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00100lPORTRAIT_00100_BURST20190114140133685_COVER_original_heatmap.jpeg"><img src="supp_results/recolor/00100lPORTRAIT_00100_BURST20190114140133685_COVER_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00100lPORTRAIT_00100_BURST20190114140133685_COVER_output.jpeg"><img src="supp_results/recolor/00100lPORTRAIT_00100_BURST20190114140133685_COVER_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/recolor/00100lPORTRAIT_00100_BURST20190114140133685_COVER_output_heatmap.jpeg"><img src="supp_results/recolor/00100lPORTRAIT_00100_BURST20190114140133685_COVER_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Mask</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of result</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="left">&nbsp;</p>
+  <h3 align="left">Deep conv operator:</h3>
+  <table width="200" border="0" align="center">
+    <tbody>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Mask</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of result</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/conv/00000PORTRAIT_00000_BURST489731018051718_original.jpeg"><img src="supp_results/conv/00000PORTRAIT_00000_BURST489731018051718_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/00000PORTRAIT_00000_BURST489731018051718_mask.jpeg"><img src="supp_results/conv/00000PORTRAIT_00000_BURST489731018051718_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/00000PORTRAIT_00000_BURST489731018051718_original_heatmap.jpeg"><img src="supp_results/conv/00000PORTRAIT_00000_BURST489731018051718_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/00000PORTRAIT_00000_BURST489731018051718_output.jpeg"><img src="supp_results/conv/00000PORTRAIT_00000_BURST489731018051718_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/00000PORTRAIT_00000_BURST489731018051718_output_heatmap.jpeg"><img src="supp_results/conv/00000PORTRAIT_00000_BURST489731018051718_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/conv/XXXX_20190730_224815_716_original.jpeg"><img src="supp_results/conv/XXXX_20190730_224815_716_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/XXXX_20190730_224815_716_mask.jpeg"><img src="supp_results/conv/XXXX_20190730_224815_716_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/XXXX_20190730_224815_716_original_heatmap.jpeg"><img src="supp_results/conv/XXXX_20190730_224815_716_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/XXXX_20190730_224815_716_output.jpeg"><img src="supp_results/conv/XXXX_20190730_224815_716_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/XXXX_20190730_224815_716_output_heatmap.jpeg"><img src="supp_results/conv/XXXX_20190730_224815_716_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/conv/IMG_20191118_205557_original.jpeg"><img src="supp_results/conv/IMG_20191118_205557_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20191118_205557_mask.jpeg"><img src="supp_results/conv/IMG_20191118_205557_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20191118_205557_original_heatmap.jpeg"><img src="supp_results/conv/IMG_20191118_205557_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20191118_205557_output.jpeg"><img src="supp_results/conv/IMG_20191118_205557_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20191118_205557_output_heatmap.jpeg"><img src="supp_results/conv/IMG_20191118_205557_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/conv/IMG_20191120_154435_original.jpeg"><img src="supp_results/conv/IMG_20191120_154435_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20191120_154435_mask.jpeg"><img src="supp_results/conv/IMG_20191120_154435_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20191120_154435_original_heatmap.jpeg"><img src="supp_results/conv/IMG_20191120_154435_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20191120_154435_output.jpeg"><img src="supp_results/conv/IMG_20191120_154435_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20191120_154435_output_heatmap.jpeg"><img src="supp_results/conv/IMG_20191120_154435_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/conv/IMG_20190930_202226_original.jpeg"><img src="supp_results/conv/IMG_20190930_202226_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20190930_202226_mask.jpeg"><img src="supp_results/conv/IMG_20190930_202226_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20190930_202226_original_heatmap.jpeg"><img src="supp_results/conv/IMG_20190930_202226_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20190930_202226_output.jpeg"><img src="supp_results/conv/IMG_20190930_202226_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20190930_202226_output_heatmap.jpeg"><img src="supp_results/conv/IMG_20190930_202226_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/conv/IMG_20190510_111231_original.jpeg"><img src="supp_results/conv/IMG_20190510_111231_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20190510_111231_mask.jpeg"><img src="supp_results/conv/IMG_20190510_111231_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20190510_111231_original_heatmap.jpeg"><img src="supp_results/conv/IMG_20190510_111231_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20190510_111231_output.jpeg"><img src="supp_results/conv/IMG_20190510_111231_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20190510_111231_output_heatmap.jpeg"><img src="supp_results/conv/IMG_20190510_111231_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/conv/IMG_20171228_083216_original.jpeg"><img src="supp_results/conv/IMG_20171228_083216_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20171228_083216_mask.jpeg"><img src="supp_results/conv/IMG_20171228_083216_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20171228_083216_original_heatmap.jpeg"><img src="supp_results/conv/IMG_20171228_083216_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20171228_083216_output.jpeg"><img src="supp_results/conv/IMG_20171228_083216_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20171228_083216_output_heatmap.jpeg"><img src="supp_results/conv/IMG_20171228_083216_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/conv/IMG_20190424_112957_1_original.jpeg"><img src="supp_results/conv/IMG_20190424_112957_1_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20190424_112957_1_mask.jpeg"><img src="supp_results/conv/IMG_20190424_112957_1_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20190424_112957_1_original_heatmap.jpeg"><img src="supp_results/conv/IMG_20190424_112957_1_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20190424_112957_1_output.jpeg"><img src="supp_results/conv/IMG_20190424_112957_1_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20190424_112957_1_output_heatmap.jpeg"><img src="supp_results/conv/IMG_20190424_112957_1_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/conv/00000PORTRAIT_00000_BURST20190425184725327_original.jpeg"><img src="supp_results/conv/00000PORTRAIT_00000_BURST20190425184725327_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/00000PORTRAIT_00000_BURST20190425184725327_mask.jpeg"><img src="supp_results/conv/00000PORTRAIT_00000_BURST20190425184725327_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/00000PORTRAIT_00000_BURST20190425184725327_original_heatmap.jpeg"><img src="supp_results/conv/00000PORTRAIT_00000_BURST20190425184725327_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/00000PORTRAIT_00000_BURST20190425184725327_output.jpeg"><img src="supp_results/conv/00000PORTRAIT_00000_BURST20190425184725327_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/00000PORTRAIT_00000_BURST20190425184725327_output_heatmap.jpeg"><img src="supp_results/conv/00000PORTRAIT_00000_BURST20190425184725327_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/conv/IMG_20191019_104330_original.jpeg"><img src="supp_results/conv/IMG_20191019_104330_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20191019_104330_mask.jpeg"><img src="supp_results/conv/IMG_20191019_104330_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20191019_104330_original_heatmap.jpeg"><img src="supp_results/conv/IMG_20191019_104330_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20191019_104330_output.jpeg"><img src="supp_results/conv/IMG_20191019_104330_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20191019_104330_output_heatmap.jpeg"><img src="supp_results/conv/IMG_20191019_104330_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/conv/IMG_20190902_171938_original.jpeg"><img src="supp_results/conv/IMG_20190902_171938_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20190902_171938_mask.jpeg"><img src="supp_results/conv/IMG_20190902_171938_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20190902_171938_original_heatmap.jpeg"><img src="supp_results/conv/IMG_20190902_171938_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20190902_171938_output.jpeg"><img src="supp_results/conv/IMG_20190902_171938_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20190902_171938_output_heatmap.jpeg"><img src="supp_results/conv/IMG_20190902_171938_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/conv/IMG_20181231_113734_original.jpeg"><img src="supp_results/conv/IMG_20181231_113734_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20181231_113734_mask.jpeg"><img src="supp_results/conv/IMG_20181231_113734_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20181231_113734_original_heatmap.jpeg"><img src="supp_results/conv/IMG_20181231_113734_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20181231_113734_output.jpeg"><img src="supp_results/conv/IMG_20181231_113734_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20181231_113734_output_heatmap.jpeg"><img src="supp_results/conv/IMG_20181231_113734_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/conv/MVIMG_20190704_152310_original.jpeg"><img src="supp_results/conv/MVIMG_20190704_152310_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/MVIMG_20190704_152310_mask.jpeg"><img src="supp_results/conv/MVIMG_20190704_152310_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/MVIMG_20190704_152310_original_heatmap.jpeg"><img src="supp_results/conv/MVIMG_20190704_152310_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/MVIMG_20190704_152310_output.jpeg"><img src="supp_results/conv/MVIMG_20190704_152310_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/MVIMG_20190704_152310_output_heatmap.jpeg"><img src="supp_results/conv/MVIMG_20190704_152310_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/conv/MVIMG_20190315_132627_original.jpeg"><img src="supp_results/conv/MVIMG_20190315_132627_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/MVIMG_20190315_132627_mask.jpeg"><img src="supp_results/conv/MVIMG_20190315_132627_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/MVIMG_20190315_132627_original_heatmap.jpeg"><img src="supp_results/conv/MVIMG_20190315_132627_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/MVIMG_20190315_132627_output.jpeg"><img src="supp_results/conv/MVIMG_20190315_132627_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/MVIMG_20190315_132627_output_heatmap.jpeg"><img src="supp_results/conv/MVIMG_20190315_132627_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/conv/00000PORTRAIT_00000_BURST20190915090117961_original.jpeg"><img src="supp_results/conv/00000PORTRAIT_00000_BURST20190915090117961_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/00000PORTRAIT_00000_BURST20190915090117961_mask.jpeg"><img src="supp_results/conv/00000PORTRAIT_00000_BURST20190915090117961_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/00000PORTRAIT_00000_BURST20190915090117961_original_heatmap.jpeg"><img src="supp_results/conv/00000PORTRAIT_00000_BURST20190915090117961_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/00000PORTRAIT_00000_BURST20190915090117961_output.jpeg"><img src="supp_results/conv/00000PORTRAIT_00000_BURST20190915090117961_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/00000PORTRAIT_00000_BURST20190915090117961_output_heatmap.jpeg"><img src="supp_results/conv/00000PORTRAIT_00000_BURST20190915090117961_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/conv/IMG_20171231_081613_original.jpeg"><img src="supp_results/conv/IMG_20171231_081613_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20171231_081613_mask.jpeg"><img src="supp_results/conv/IMG_20171231_081613_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20171231_081613_original_heatmap.jpeg"><img src="supp_results/conv/IMG_20171231_081613_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20171231_081613_output.jpeg"><img src="supp_results/conv/IMG_20171231_081613_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/conv/IMG_20171231_081613_output_heatmap.jpeg"><img src="supp_results/conv/IMG_20171231_081613_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Mask</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of result</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="left">&nbsp;</p>
+  <h3 align="left">Warping operator:</h3>
+  <table width="200" border="0" align="center">
+    <tbody>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Mask</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of result</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/warp/IMG_20191215_164023_original.jpeg"><img src="supp_results/warp/IMG_20191215_164023_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191215_164023_mask.jpeg"><img src="supp_results/warp/IMG_20191215_164023_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191215_164023_original_heatmap.jpeg"><img src="supp_results/warp/IMG_20191215_164023_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191215_164023_output.jpeg"><img src="supp_results/warp/IMG_20191215_164023_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191215_164023_output_heatmap.jpeg"><img src="supp_results/warp/IMG_20191215_164023_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/warp/IMG_20180914_201506_original.jpeg"><img src="supp_results/warp/IMG_20180914_201506_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20180914_201506_mask.jpeg"><img src="supp_results/warp/IMG_20180914_201506_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20180914_201506_original_heatmap.jpeg"><img src="supp_results/warp/IMG_20180914_201506_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20180914_201506_output.jpeg"><img src="supp_results/warp/IMG_20180914_201506_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20180914_201506_output_heatmap.jpeg"><img src="supp_results/warp/IMG_20180914_201506_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/warp/IMG_20191118_205557_original.jpeg"><img src="supp_results/warp/IMG_20191118_205557_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191118_205557_mask.jpeg"><img src="supp_results/warp/IMG_20191118_205557_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191118_205557_original_heatmap.jpeg"><img src="supp_results/warp/IMG_20191118_205557_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191118_205557_output.jpeg"><img src="supp_results/warp/IMG_20191118_205557_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191118_205557_output_heatmap.jpeg"><img src="supp_results/warp/IMG_20191118_205557_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/warp/IMG_20190424_112957_1_original.jpeg"><img src="supp_results/warp/IMG_20190424_112957_1_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20190424_112957_1_mask.jpeg"><img src="supp_results/warp/IMG_20190424_112957_1_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20190424_112957_1_original_heatmap.jpeg"><img src="supp_results/warp/IMG_20190424_112957_1_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20190424_112957_1_output.jpeg"><img src="supp_results/warp/IMG_20190424_112957_1_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20190424_112957_1_output_heatmap.jpeg"><img src="supp_results/warp/IMG_20190424_112957_1_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/warp/IMG_20191120_182725_original.jpeg"><img src="supp_results/warp/IMG_20191120_182725_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191120_182725_mask.jpeg"><img src="supp_results/warp/IMG_20191120_182725_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191120_182725_original_heatmap.jpeg"><img src="supp_results/warp/IMG_20191120_182725_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191120_182725_output.jpeg"><img src="supp_results/warp/IMG_20191120_182725_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191120_182725_output_heatmap.jpeg"><img src="supp_results/warp/IMG_20191120_182725_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/warp/MVIMG_20190704_152310_original.jpeg"><img src="supp_results/warp/MVIMG_20190704_152310_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/MVIMG_20190704_152310_mask.jpeg"><img src="supp_results/warp/MVIMG_20190704_152310_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/MVIMG_20190704_152310_original_heatmap.jpeg"><img src="supp_results/warp/MVIMG_20190704_152310_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/MVIMG_20190704_152310_output.jpeg"><img src="supp_results/warp/MVIMG_20190704_152310_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/MVIMG_20190704_152310_output_heatmap.jpeg"><img src="supp_results/warp/MVIMG_20190704_152310_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/warp/IMG_1592_original.jpeg"><img src="supp_results/warp/IMG_1592_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_1592_mask.jpeg"><img src="supp_results/warp/IMG_1592_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_1592_original_heatmap.jpeg"><img src="supp_results/warp/IMG_1592_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_1592_output.jpeg"><img src="supp_results/warp/IMG_1592_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_1592_output_heatmap.jpeg"><img src="supp_results/warp/IMG_1592_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/warp/IMG_20191123_113923_original.jpeg"><img src="supp_results/warp/IMG_20191123_113923_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191123_113923_mask.jpeg"><img src="supp_results/warp/IMG_20191123_113923_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191123_113923_original_heatmap.jpeg"><img src="supp_results/warp/IMG_20191123_113923_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191123_113923_output.jpeg"><img src="supp_results/warp/IMG_20191123_113923_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191123_113923_output_heatmap.jpeg"><img src="supp_results/warp/IMG_20191123_113923_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/warp/IMG_20180110_045115_original.jpeg"><img src="supp_results/warp/IMG_20180110_045115_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20180110_045115_mask.jpeg"><img src="supp_results/warp/IMG_20180110_045115_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20180110_045115_original_heatmap.jpeg"><img src="supp_results/warp/IMG_20180110_045115_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20180110_045115_output.jpeg"><img src="supp_results/warp/IMG_20180110_045115_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20180110_045115_output_heatmap.jpeg"><img src="supp_results/warp/IMG_20180110_045115_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/warp/IMG_20191123_111719_original.jpeg"><img src="supp_results/warp/IMG_20191123_111719_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191123_111719_mask.jpeg"><img src="supp_results/warp/IMG_20191123_111719_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191123_111719_original_heatmap.jpeg"><img src="supp_results/warp/IMG_20191123_111719_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191123_111719_output.jpeg"><img src="supp_results/warp/IMG_20191123_111719_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191123_111719_output_heatmap.jpeg"><img src="supp_results/warp/IMG_20191123_111719_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/warp/IMG_20191123_113442_original.jpeg"><img src="supp_results/warp/IMG_20191123_113442_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191123_113442_mask.jpeg"><img src="supp_results/warp/IMG_20191123_113442_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191123_113442_original_heatmap.jpeg"><img src="supp_results/warp/IMG_20191123_113442_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191123_113442_output.jpeg"><img src="supp_results/warp/IMG_20191123_113442_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191123_113442_output_heatmap.jpeg"><img src="supp_results/warp/IMG_20191123_113442_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/warp/IMG_20191231_101719_original.jpeg"><img src="supp_results/warp/IMG_20191231_101719_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191231_101719_mask.jpeg"><img src="supp_results/warp/IMG_20191231_101719_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191231_101719_original_heatmap.jpeg"><img src="supp_results/warp/IMG_20191231_101719_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191231_101719_output.jpeg"><img src="supp_results/warp/IMG_20191231_101719_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/IMG_20191231_101719_output_heatmap.jpeg"><img src="supp_results/warp/IMG_20191231_101719_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/warp/01KP_20180809_002941_464_-4.7lsb_original.jpeg"><img src="supp_results/warp/01KP_20180809_002941_464_-4.7lsb_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/01KP_20180809_002941_464_-4.7lsb_mask.jpeg"><img src="supp_results/warp/01KP_20180809_002941_464_-4.7lsb_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/01KP_20180809_002941_464_-4.7lsb_original_heatmap.jpeg"><img src="supp_results/warp/01KP_20180809_002941_464_-4.7lsb_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/01KP_20180809_002941_464_-4.7lsb_output.jpeg"><img src="supp_results/warp/01KP_20180809_002941_464_-4.7lsb_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/warp/01KP_20180809_002941_464_-4.7lsb_output_heatmap.jpeg"><img src="supp_results/warp/01KP_20180809_002941_464_-4.7lsb_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Mask</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of result</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="left">&nbsp;</p>
+  <h3 align="left">GAN operator:</h3>
+  <table width="200" border="0" align="center">
+    <tbody>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Mask</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of result</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/GAN_1_original.jpeg"><img src="supp_results/GANs/GAN_1_original.jpeg" alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_1_mask.jpeg"><img src="supp_results/GANs/GAN_1_mask.jpeg" alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_1_original_heatmap.jpeg"><img src="supp_results/GANs/GAN_1_original_heatmap.jpeg" width="200" alt=""/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_1_output.jpeg"><img src="supp_results/GANs/GAN_1_output.jpeg" width="200" alt=""/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_1_output_heatmap.jpeg"><img src="supp_results/GANs/GAN_1_output_heatmap.jpeg" width="200" alt=""/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/GAN_2_original.jpeg"><img src="supp_results/GANs/GAN_2_original.jpeg" alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_2_mask.jpeg"><img src="supp_results/GANs/GAN_2_mask.jpeg" alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_2_original_heatmap.jpeg"><img src="supp_results/GANs/GAN_2_original_heatmap.jpeg" width="200" alt=""/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_2_output.jpeg"><img src="supp_results/GANs/GAN_2_output.jpeg" width="200" alt=""/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_2_output_heatmap.jpeg"><img src="supp_results/GANs/GAN_2_output_heatmap.jpeg" width="200" alt=""/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/GAN_3_original.jpeg"><img src="supp_results/GANs/GAN_3_original.jpeg" alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_3_mask.jpeg"><img src="supp_results/GANs/GAN_3_mask.jpeg" alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_3_original_heatmap.jpeg"><img src="supp_results/GANs/GAN_3_original_heatmap.jpeg" width="200" alt=""/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_3_output.jpeg"><img src="supp_results/GANs/GAN_3_output.jpeg" width="200" alt=""/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_3_output_heatmap.jpeg"><img src="supp_results/GANs/GAN_3_output_heatmap.jpeg" width="200" alt=""/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/GAN_8_original.jpeg"><img src="supp_results/GANs/GAN_8_original.jpeg" alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_8_mask.jpeg"><img src="supp_results/GANs/GAN_8_mask.jpeg" alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_8_original_heatmap.jpeg"><img src="supp_results/GANs/GAN_8_original_heatmap.jpeg" width="200" alt=""/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_8_output.jpeg"><img src="supp_results/GANs/GAN_8_output.jpeg" width="200" alt=""/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_8_output_heatmap.jpeg"><img src="supp_results/GANs/GAN_8_output_heatmap.jpeg" width="200" alt=""/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/GAN_9_original.jpeg"><img src="supp_results/GANs/GAN_9_original.jpeg" alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_9_mask.jpeg"><img src="supp_results/GANs/GAN_9_mask.jpeg" alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_9_original_heatmap.jpeg"><img src="supp_results/GANs/GAN_9_original_heatmap.jpeg" width="200" alt=""/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_9_output.jpeg"><img src="supp_results/GANs/GAN_9_output.jpeg" width="200" alt=""/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_9_output_heatmap.jpeg"><img src="supp_results/GANs/GAN_9_output_heatmap.jpeg" width="200" alt=""/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/GAN_11_original.jpeg"><img src="supp_results/GANs/GAN_11_original.jpeg" alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_11_mask.jpeg"><img src="supp_results/GANs/GAN_11_mask.jpeg" alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_11_original_heatmap.jpeg"><img src="supp_results/GANs/GAN_11_original_heatmap.jpeg" width="200" alt=""/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_11_output.jpeg"><img src="supp_results/GANs/GAN_11_output.jpeg" width="200" alt=""/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_11_output_heatmap.jpeg"><img src="supp_results/GANs/GAN_11_output_heatmap.jpeg" width="200" alt=""/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/GAN_12_original.jpeg"><img src="supp_results/GANs/GAN_12_original.jpeg" alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_12_mask.jpeg"><img src="supp_results/GANs/GAN_12_mask.jpeg" alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_12_original_heatmap.jpeg"><img src="supp_results/GANs/GAN_12_original_heatmap.jpeg" width="200" alt=""/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_12_output.jpeg"><img src="supp_results/GANs/GAN_12_output.jpeg" width="200" alt=""/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/GAN_12_output_heatmap.jpeg"><img src="supp_results/GANs/GAN_12_output_heatmap.jpeg" width="200" alt=""/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/extra_GAN4_original.jpeg"><img src="supp_results/GANs/extra_GAN4_original.jpeg" alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/extra_GAN4_mask.jpeg"><img src="supp_results/GANs/extra_GAN4_mask.jpeg" alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/extra_GAN4_original_heatmap.jpeg"><img src="supp_results/GANs/extra_GAN4_original_heatmap.jpeg" width="200" alt=""/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/extra_GAN4_output.jpeg"><img src="supp_results/GANs/extra_GAN4_output.jpeg" width="200" alt=""/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/extra_GAN4_output_heatmap.jpeg"><img src="supp_results/GANs/extra_GAN4_output_heatmap.jpeg" width="200" alt=""/></a></td>
+      </tr>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Mask</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of result</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <hr />
+  <h2 align="left"><a name="results_decrease" id="results_decrease"></a>Results - Increasing Saliency</h2>
+  <p align="left"> Our focus in this paper is on decreasing attention for the purpose of reducing visual distraction. However, we also demonstrate results for increasing attention using the GAN operator. For each example, we set the target saliency within the masked region (second column from left) to be 1. Click on each image to view it in larger size.</p>
+  <p align="left">&nbsp;</p>
+  <table width="200" border="0" align="center">
+    <tbody>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Mask</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of result</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/inc_GAN_4_original.jpeg"><img src="supp_results/GANs/inc_GAN_4_original.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_4_mask.jpeg"><img src="supp_results/GANs/inc_GAN_4_mask.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_4_original_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_4_original_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_4_output.jpeg"><img src="supp_results/GANs/inc_GAN_4_output.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_4_output_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_4_output_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/inc_GAN_5_original.jpeg"><img src="supp_results/GANs/inc_GAN_5_original.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_5_mask.jpeg"><img src="supp_results/GANs/inc_GAN_5_mask.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_5_original_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_5_original_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_5_output.jpeg"><img src="supp_results/GANs/inc_GAN_5_output.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_5_output_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_5_output_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/inc_GAN_7_original.jpeg"><img src="supp_results/GANs/inc_GAN_7_original.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_7_mask.jpeg"><img src="supp_results/GANs/inc_GAN_7_mask.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_7_original_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_7_original_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_7_output.jpeg"><img src="supp_results/GANs/inc_GAN_7_output.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_7_output_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_7_output_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/inc_GAN_10_original.jpeg"><img src="supp_results/GANs/inc_GAN_10_original.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_10_mask.jpeg"><img src="supp_results/GANs/inc_GAN_10_mask.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_10_original_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_10_original_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_10_output.jpeg"><img src="supp_results/GANs/inc_GAN_10_output.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_10_output_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_10_output_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/inc_GAN_14_original.jpeg"><img src="supp_results/GANs/inc_GAN_14_original.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_14_mask.jpeg"><img src="supp_results/GANs/inc_GAN_14_mask.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_14_original_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_14_original_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_14_output.jpeg"><img src="supp_results/GANs/inc_GAN_14_output.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_14_output_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_14_output_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/inc_GAN_15_original.jpeg"><img src="supp_results/GANs/inc_GAN_15_original.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_15_mask.jpeg"><img src="supp_results/GANs/inc_GAN_15_mask.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_15_original_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_15_original_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_15_output.jpeg"><img src="supp_results/GANs/inc_GAN_15_output.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_15_output_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_15_output_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/inc_GAN_16_original.jpeg"><img src="supp_results/GANs/inc_GAN_16_original.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_16_mask.jpeg"><img src="supp_results/GANs/inc_GAN_16_mask.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_16_original_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_16_original_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_16_output.jpeg"><img src="supp_results/GANs/inc_GAN_16_output.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_16_output_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_16_output_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/inc_GAN_17_original.jpeg"><img src="supp_results/GANs/inc_GAN_17_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_17_mask.jpeg"><img src="supp_results/GANs/inc_GAN_17_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_17_original_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_17_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_17_output.jpeg"><img src="supp_results/GANs/inc_GAN_17_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_17_output_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_17_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/inc_GAN_18_original.jpeg"><img src="supp_results/GANs/inc_GAN_18_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_18_mask.jpeg"><img src="supp_results/GANs/inc_GAN_18_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_18_original_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_18_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_18_output.jpeg"><img src="supp_results/GANs/inc_GAN_18_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_18_output_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_18_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/inc_GAN_19_original.jpeg"><img src="supp_results/GANs/inc_GAN_19_original.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_19_mask.jpeg"><img src="supp_results/GANs/inc_GAN_19_mask.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_19_original_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_19_original_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_19_output.jpeg"><img src="supp_results/GANs/inc_GAN_19_output.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_19_output_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_19_output_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/inc_GAN_20_original.jpeg"><img src="supp_results/GANs/inc_GAN_20_original.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_20_mask.jpeg"><img src="supp_results/GANs/inc_GAN_20_mask.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_20_original_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_20_original_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_20_output.jpeg"><img src="supp_results/GANs/inc_GAN_20_output.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_20_output_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_20_output_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/inc_GAN_21_original.jpeg"><img src="supp_results/GANs/inc_GAN_21_original.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_21_mask.jpeg"><img src="supp_results/GANs/inc_GAN_21_mask.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_21_original_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_21_original_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_21_output.jpeg"><img src="supp_results/GANs/inc_GAN_21_output.jpeg"  alt="" width="200" height="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_21_output_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_21_output_heatmap.jpeg"  alt="" width="200" height="200"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_results/GANs/inc_GAN_22_original.jpeg"><img src="supp_results/GANs/inc_GAN_22_original.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_22_mask.jpeg"><img src="supp_results/GANs/inc_GAN_22_mask.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_22_original_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_22_original_heatmap.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_22_output.jpeg"><img src="supp_results/GANs/inc_GAN_22_output.jpeg"  alt="" width="200"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_results/GANs/inc_GAN_22_output_heatmap.jpeg"><img src="supp_results/GANs/inc_GAN_22_output_heatmap.jpeg"  alt="" width="200"/></a></td>
+      </tr>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Mask</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Predicted saliency of result</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="left">&nbsp;</p>
+  <p align="left">&nbsp;</p>
+  <hr />
+  <h2 align="left"><a name="eye_gaze" id="eye_gaze"></a>Eye-gaze study results</h2>
+  <p align="left">Supplementing Figure 9 in the paper. We show more examples of real eye-gaze saliency maps measured in our perceptual study (see more details on the study in the <a href="supplementary.pdf">supplementary PDF</a>).</p>
+  <p align="left">&nbsp;</p>
+  <h3 align="left">Saliency decrease:</h3>
+  <table width="200" border="0" align="center">
+    <tbody>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Computed Saliency on Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Measured eye-gaze on Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Computed Saliency on Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Measured eye-gaze on Result</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/0_original.jpeg"><img src="supp_eye_gaze/0_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/0_original_saliency.jpeg"><img src="supp_eye_gaze/0_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/0_original_gaze.jpeg"><img src="supp_eye_gaze/0_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/0_output.jpeg"><img src="supp_eye_gaze/0_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/0_output_saliency.jpeg"><img src="supp_eye_gaze/0_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/0_output_gaze.jpeg"><img src="supp_eye_gaze/0_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/1_original.jpeg"><img src="supp_eye_gaze/1_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/1_original_saliency.jpeg"><img src="supp_eye_gaze/1_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/1_original_gaze.jpeg"><img src="supp_eye_gaze/1_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/1_output.jpeg"><img src="supp_eye_gaze/1_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/1_output_saliency.jpeg"><img src="supp_eye_gaze/1_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/1_output_gaze.jpeg"><img src="supp_eye_gaze/1_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/2_original.jpeg"><img src="supp_eye_gaze/2_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/2_original_saliency.jpeg"><img src="supp_eye_gaze/2_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/2_original_gaze.jpeg"><img src="supp_eye_gaze/2_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/2_output.jpeg"><img src="supp_eye_gaze/2_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/2_output_saliency.jpeg"><img src="supp_eye_gaze/2_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/2_output_gaze.jpeg"><img src="supp_eye_gaze/2_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/3_original.jpeg"><img src="supp_eye_gaze/3_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/3_original_saliency.jpeg"><img src="supp_eye_gaze/3_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/3_original_gaze.jpeg"><img src="supp_eye_gaze/3_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/3_output.jpeg"><img src="supp_eye_gaze/3_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/3_output_saliency.jpeg"><img src="supp_eye_gaze/3_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/3_output_gaze.jpeg"><img src="supp_eye_gaze/3_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/4_original.jpeg"><img src="supp_eye_gaze/4_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/4_original_saliency.jpeg"><img src="supp_eye_gaze/4_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/4_original_gaze.jpeg"><img src="supp_eye_gaze/4_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/4_output.jpeg"><img src="supp_eye_gaze/4_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/4_output_saliency.jpeg"><img src="supp_eye_gaze/4_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/4_output_gaze.jpeg"><img src="supp_eye_gaze/4_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/5_original.jpeg"><img src="supp_eye_gaze/5_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/5_original_saliency.jpeg"><img src="supp_eye_gaze/5_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/5_original_gaze.jpeg"><img src="supp_eye_gaze/5_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/5_output.jpeg"><img src="supp_eye_gaze/5_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/5_output_saliency.jpeg"><img src="supp_eye_gaze/5_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/5_output_gaze.jpeg"><img src="supp_eye_gaze/5_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/6_original.jpeg"><img src="supp_eye_gaze/6_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/6_original_saliency.jpeg"><img src="supp_eye_gaze/6_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/6_original_gaze.jpeg"><img src="supp_eye_gaze/6_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/6_output.jpeg"><img src="supp_eye_gaze/6_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/6_output_saliency.jpeg"><img src="supp_eye_gaze/6_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/6_output_gaze.jpeg"><img src="supp_eye_gaze/6_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Computed Saliency on Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Measured eye-gaze on Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Computed Saliency on Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Measured eye-gaze on Result</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="left">&nbsp;</p>
+  <h3 align="left">Saliency increase:</h3>
+  <table width="200" border="0" align="center">
+    <tbody>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Computed Saliency on Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Measured eye-gaze on Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Computed Saliency on Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Measured eye-gaze on Result</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/7_original.jpeg"><img src="supp_eye_gaze/7_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/7_original_saliency.jpeg"><img src="supp_eye_gaze/7_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/7_original_gaze.jpeg"><img src="supp_eye_gaze/7_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/7_output.jpeg"><img src="supp_eye_gaze/7_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/7_output_saliency.jpeg"><img src="supp_eye_gaze/7_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/7_output_gaze.jpeg"><img src="supp_eye_gaze/7_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/8_original.jpeg"><img src="supp_eye_gaze/8_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/8_original_saliency.jpeg"><img src="supp_eye_gaze/8_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/8_original_gaze.jpeg"><img src="supp_eye_gaze/8_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/8_output.jpeg"><img src="supp_eye_gaze/8_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/8_output_saliency.jpeg"><img src="supp_eye_gaze/8_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/8_output_gaze.jpeg"><img src="supp_eye_gaze/8_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/9_original.jpeg"><img src="supp_eye_gaze/9_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/9_original_saliency.jpeg"><img src="supp_eye_gaze/9_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/9_original_gaze.jpeg"><img src="supp_eye_gaze/9_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/9_output.jpeg"><img src="supp_eye_gaze/9_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/9_output_saliency.jpeg"><img src="supp_eye_gaze/9_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/9_output_gaze.jpeg"><img src="supp_eye_gaze/9_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/10_original.jpeg"><img src="supp_eye_gaze/10_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/10_original_saliency.jpeg"><img src="supp_eye_gaze/10_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/10_original_gaze.jpeg"><img src="supp_eye_gaze/10_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/10_output.jpeg"><img src="supp_eye_gaze/10_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/10_output_saliency.jpeg"><img src="supp_eye_gaze/10_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/10_output_gaze.jpeg"><img src="supp_eye_gaze/10_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Computed Saliency on Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Measured eye-gaze on Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Computed Saliency on Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Measured eye-gaze on Result</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="left">&nbsp;</p>
+  <p align="left">&nbsp;</p>
+  <hr />
+  <h2 align="left"><a name="comparison" id="comparison"></a>Comparison with &quot;Look-Here!&quot; [31]</h2>
+  <p align="left">More comparisons with &quot;Look-Here!&quot; [31], supplementing Figure 10 in the paper.</p>
+  <p> Comparison to recolor: </p>
+  <p align="left">&nbsp;</p>
+  <table width="200" border="0" align="center">
+    <tbody>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Mask</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&quot;Look-Here!&quot;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Ours</td>
+      </tr>
+      <tr>
+        <td><a href="supp_comparison/0_original.jpeg"><img src="supp_comparison/0_original.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/0_mask.jpeg"><img src="supp_comparison/0_mask.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/0_look_here.jpeg"><img src="supp_comparison/0_look_here.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/0_output.jpeg"><img src="supp_comparison/0_output.jpeg"  alt="" width="250"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_comparison/1_original.jpeg"><img src="supp_comparison/1_original.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/1_mask.jpeg"><img src="supp_comparison/1_mask.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/1_look_here.jpeg"><img src="supp_comparison/1_look_here.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/1_output.jpeg"><img src="supp_comparison/1_output.jpeg"  alt="" width="250"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_comparison/2_original.jpeg"><img src="supp_comparison/2_original.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/2_mask.jpeg"><img src="supp_comparison/2_mask.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/2_look_here.jpeg"><img src="supp_comparison/2_look_here.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/2_output.jpeg"><img src="supp_comparison/2_output.jpeg"  alt="" width="250"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_comparison/3_original.jpeg"><img src="supp_comparison/3_original.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/3_mask.jpeg"><img src="supp_comparison/3_mask.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/3_look_here.jpeg"><img src="supp_comparison/3_look_here.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/3_output.jpeg"><img src="supp_comparison/3_output.jpeg"  alt="" width="250"/></a></td>
+      </tr>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Mask</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&quot;Look-Here!&quot;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Ours</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="left">&nbsp;</p>
+  <p> Comparison to deep conv: </p>
+  <table width="200" border="0" align="center">
+    <tbody>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Mask</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&quot;Look-Here!&quot;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Ours</td>
+      </tr>
+      <tr>
+        <td><a href="supp_comparison/4_original.jpeg"><img src="supp_comparison/4_original.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/4_mask.jpeg"><img src="supp_comparison/4_mask.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/4_look_here.jpeg"><img src="supp_comparison/4_look_here.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/4_output.jpeg"><img src="supp_comparison/4_output.jpeg"  alt="" width="250"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_comparison/5_original.jpeg"><img src="supp_comparison/5_original.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/5_mask.jpeg"><img src="supp_comparison/5_mask.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/5_look_here.jpeg"><img src="supp_comparison/5_look_here.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/5_output.jpeg"><img src="supp_comparison/5_output.jpeg"  alt="" width="250"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_comparison/6_original.jpeg"><img src="supp_comparison/6_original.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/6_mask.jpeg"><img src="supp_comparison/6_mask.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/6_look_here.jpeg"><img src="supp_comparison/6_look_here.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/6_output.jpeg"><img src="supp_comparison/6_output.jpeg"  alt="" width="250"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_comparison/7_original.jpeg"><img src="supp_comparison/7_original.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/7_mask.jpeg"><img src="supp_comparison/7_mask.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/7_look_here.jpeg"><img src="supp_comparison/7_look_here.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/7_output.jpeg"><img src="supp_comparison/7_output.jpeg"  alt="" width="250"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_comparison/8_original.jpeg"><img src="supp_comparison/8_original.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/8_mask.jpeg"><img src="supp_comparison/8_mask.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/8_look_here.jpeg"><img src="supp_comparison/8_look_here.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/8_output.jpeg"><img src="supp_comparison/8_output.jpeg"  alt="" width="250"/></a></td>
+      </tr>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Mask</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&quot;Look-Here!&quot;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Ours</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="left">&nbsp;</p>
+  <p> Comparison to warp: </p>
+  <table width="200" border="0" align="center">
+    <tbody>
+      <tr>
+        <td><a href="supp_comparison/9_original.jpeg"><img src="supp_comparison/9_original.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/9_mask.jpeg"><img src="supp_comparison/9_mask.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/9_look_here.jpeg"><img src="supp_comparison/9_look_here.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/9_output.jpeg"><img src="supp_comparison/9_output.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_comparison/10_original.jpeg"><img src="supp_comparison/10_original.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/10_mask.jpeg"><img src="supp_comparison/10_mask.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/10_look_here.jpeg"><img src="supp_comparison/10_look_here.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/10_output.jpeg"><img src="supp_comparison/10_output.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_comparison/11_original.jpeg"><img src="supp_comparison/11_original.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/11_mask.jpeg"><img src="supp_comparison/11_mask.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/11_look_here.jpeg"><img src="supp_comparison/11_look_here.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/11_output.jpeg"><img src="supp_comparison/11_output.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_comparison/12_original.jpeg"><img src="supp_comparison/12_original.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/12_mask.jpeg"><img src="supp_comparison/12_mask.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/12_look_here.jpeg"><img src="supp_comparison/12_look_here.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/12_output.jpeg"><img src="supp_comparison/12_output.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_comparison/13_original.jpeg"><img src="supp_comparison/13_original.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/13_mask.jpeg"><img src="supp_comparison/13_mask.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/13_look_here.jpeg"><img src="supp_comparison/13_look_here.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_comparison/13_output.jpeg"><img src="supp_comparison/13_output.jpeg"  alt="" width="250"/></a></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</div>
+</body>
+</html>

@@ -65,10 +65,10 @@
     <p class="paragraph-3 nerf_text nerf_results_text">Given an input image and a region(s) to edit, our method back-propagates through a visual saliency prediction model to solve for an image such that the saliency level in the region of interest is modified. We explore a set of differentiable operators, the parameters of which are all guided by the saliency model, resulting in a variety of effects such as (a) camouflaging (b) semantic editing (c) inpainting, and (d) color harmonization.</p></div>
 </div>	 
     <div class="link_column_nerf_v2 w-row">
-      <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4"> <a href="./saliency_driven_editing_preprint.pdf" target="_blank" class="link-block w-inline-block"> <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png" alt="paper" class="paper_img image-8 github_icon_nerf_v2"/></a> 
+      <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4"> <a href="supplementary/saliency_driven_editing_preprint.pdf" target="_blank" class="link-block w-inline-block"> <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png" alt="paper" class="paper_img image-8 github_icon_nerf_v2"/></a> 
         <!-- <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png" alt="paper" srcset="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01-p-500.png 500w, https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cab99df4998decfbf9e218e_paper-01.png 672w" sizes="(max-width: 479px) 12vw, (max-width: 767px) 7vw, (max-width: 991px) 41.84375px, 56.6875px" class="paper_img image-8_nerf"/></a> --> 
       </div>
-      <div class="column-2 w-col w-col-4 w-col-small-4 w-col-tiny-4"><a href="./index.html" target="_blank" class="link-block w-inline-block"> <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5e7136849ee3b0a0c6a95151_database.svg" alt="paper" class="paper_img image-8_nerf nerf_db_icon"/></a> </div>
+      <div class="column-2 w-col w-col-4 w-col-small-4 w-col-tiny-4"><a href="supplementary/index.html" target="_blank" class="link-block w-inline-block"> <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5e7136849ee3b0a0c6a95151_database.svg" alt="paper" class="paper_img image-8_nerf nerf_db_icon"/></a> </div>
       <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4"> <a href="./index.html" target="_blank" class="link-block w-inline-block"> <img src="https://uploads-ssl.webflow.com/51e0d73d83d06baa7a00000f/5cae3b53b42ebb3dd4175a82_68747470733a2f2f7777772e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6f637469636f6e732f313032342f6d61726b2d6769746875622d3235362e706e67.png" alt="paper" class="paper_img image-8 github_icon_nerf_v2"/></a> </div>
     </div>
     <div class="paper_code_nerf w-row">
@@ -90,24 +90,7 @@
 	
 <div data-anchor="slide1" class="section nerf_section">
   <div class="grey_container w-container">
-    <p class="paragraph-3 nerf_text abstract">We show that a saliency model trained to predict human eye-gaze can drive a
-      range of powerful editing effects for reducing distraction in images, without any
-      additional supervision. Given an image and a region to edit, we cast the problem of
-      reducing distraction as an optimization over a composition of a differentiable image
-      editing operator and a state-of-the-art saliency model. We demonstrate several
-      operators, including: a recoloring operator, which applies a color transform that
-      camouflages and blends distractors into their surroundings; a warping operator,
-      which warps less salient image regions to cover distractors, gradually collapsing
-      objects into themselves and effectively removing them (an effect akin to inpainting);
-      a GAN operator, which uses a semantic prior to fully replace image regions
-      with plausible, less salient alternatives. The resulting effects are consistent with
-      cognitive research on the human visual system (e.g., since color mismatch is salient,
-      the recoloring operator learns to harmonize objects’ colors with their surrounding
-      to reduce their saliency), and, importantly, are all achieved solely through the
-      guidance of the pretrained saliency model, with no additional training data. We
-      present results on a variety of natural images and conduct a perceptual study to
-      evaluate and validate the changes in viewers’ eye-gaze between the original images
-      and our edited results.</p>
+    <p class="paragraph-3 nerf_text abstract">Using only a model that was trained to predict where people look at images, and no additional training data, we can produce a range of powerful editing effects for reducing distraction in images. Given an image and a mask specifying the region to edit, we backpropagate through a state-of-the-art saliency model to parameterize a differentiable editing operator, such that the saliency within the masked region is reduced. We demonstrate several operators, including: a recoloring operator, which learns to apply a color transform that camouflages and blends distractors into their surroundings; a warping operator, which warps less salient image regions to cover distractors, gradually collapsing objects into themselves and effectively removing them (an effect akin to inpainting); a GAN operator, which uses a semantic prior to fully replace image regions with plausible, less salient alternatives. The resulting effects are consistent with cognitive research on the human visual system (e.g., since color mismatch is salient, the recoloring operator learns to harmonize objects' colors with their surrounding to reduce their saliency), and, importantly, are all achieved solely through the guidance of the pretrained saliency model, with no additional supervision. We present results on a variety of natural images and conduct a perceptual study to evaluate and validate the changes in viewers' eye-gaze between the original images and our edited results.</p>
     
     <!-- <img src="./images/architecture-web.png" alt="" class="nerf_network"/>
 
@@ -187,7 +170,7 @@
       <div class="bibtex">
         <pre><code>@article{aberman2021deep,
   author = {Aberman, Kfir and He, Junfeng and Gandelsman, Yossi and Mossari, Inbar and Jacobes, David E. and Kohlhoff, Kai and Pritch, Yael and Rubinstein, Michael},
-  title = {Learning to Reduce Visual Distraction with Deep Saliency Models},
+  title = {Deep Saliency Prior for Reducing Visual Distraction},
   publisher = {Arxiv}
 }</code></pre>
       </div>
