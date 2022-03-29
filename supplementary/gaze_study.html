@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Paper 5058: Deep Saliency Prior for Reducing Visual Distraction</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="container">
+  <h1 align="center"> Deep Saliency Prior for Reducing Visual Distraction</h1>
+  <h2 align="center">Gaze User-Study</h3>
+  <p align="center">&nbsp;</p>
+  <hr />
+  <p align="left">&nbsp;</p>
+  <h3 align="left">Saliency decrease:</h3>
+  <table width="200" border="0" align="center">
+    <tbody>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Computed Saliency on Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Measured eye-gaze on Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Computed Saliency on Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Measured eye-gaze on Result</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/0_original.jpeg"><img src="supp_eye_gaze/0_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/0_original_saliency.jpeg"><img src="supp_eye_gaze/0_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/0_original_gaze.jpeg"><img src="supp_eye_gaze/0_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/0_output.jpeg"><img src="supp_eye_gaze/0_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/0_output_saliency.jpeg"><img src="supp_eye_gaze/0_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/0_output_gaze.jpeg"><img src="supp_eye_gaze/0_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/1_original.jpeg"><img src="supp_eye_gaze/1_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/1_original_saliency.jpeg"><img src="supp_eye_gaze/1_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/1_original_gaze.jpeg"><img src="supp_eye_gaze/1_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/1_output.jpeg"><img src="supp_eye_gaze/1_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/1_output_saliency.jpeg"><img src="supp_eye_gaze/1_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/1_output_gaze.jpeg"><img src="supp_eye_gaze/1_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/2_original.jpeg"><img src="supp_eye_gaze/2_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/2_original_saliency.jpeg"><img src="supp_eye_gaze/2_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/2_original_gaze.jpeg"><img src="supp_eye_gaze/2_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/2_output.jpeg"><img src="supp_eye_gaze/2_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/2_output_saliency.jpeg"><img src="supp_eye_gaze/2_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/2_output_gaze.jpeg"><img src="supp_eye_gaze/2_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/3_original.jpeg"><img src="supp_eye_gaze/3_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/3_original_saliency.jpeg"><img src="supp_eye_gaze/3_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/3_original_gaze.jpeg"><img src="supp_eye_gaze/3_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/3_output.jpeg"><img src="supp_eye_gaze/3_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/3_output_saliency.jpeg"><img src="supp_eye_gaze/3_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/3_output_gaze.jpeg"><img src="supp_eye_gaze/3_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/4_original.jpeg"><img src="supp_eye_gaze/4_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/4_original_saliency.jpeg"><img src="supp_eye_gaze/4_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/4_original_gaze.jpeg"><img src="supp_eye_gaze/4_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/4_output.jpeg"><img src="supp_eye_gaze/4_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/4_output_saliency.jpeg"><img src="supp_eye_gaze/4_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/4_output_gaze.jpeg"><img src="supp_eye_gaze/4_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/5_original.jpeg"><img src="supp_eye_gaze/5_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/5_original_saliency.jpeg"><img src="supp_eye_gaze/5_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/5_original_gaze.jpeg"><img src="supp_eye_gaze/5_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/5_output.jpeg"><img src="supp_eye_gaze/5_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/5_output_saliency.jpeg"><img src="supp_eye_gaze/5_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/5_output_gaze.jpeg"><img src="supp_eye_gaze/5_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/6_original.jpeg"><img src="supp_eye_gaze/6_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/6_original_saliency.jpeg"><img src="supp_eye_gaze/6_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/6_original_gaze.jpeg"><img src="supp_eye_gaze/6_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/6_output.jpeg"><img src="supp_eye_gaze/6_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/6_output_saliency.jpeg"><img src="supp_eye_gaze/6_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/6_output_gaze.jpeg"><img src="supp_eye_gaze/6_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Computed Saliency on Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Measured eye-gaze on Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Computed Saliency on Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Measured eye-gaze on Result</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="left">&nbsp;</p>
+  <h3 align="left">Saliency increase:</h3>
+  <table width="200" border="0" align="center">
+    <tbody>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Computed Saliency on Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Measured eye-gaze on Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Computed Saliency on Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Measured eye-gaze on Result</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/7_original.jpeg"><img src="supp_eye_gaze/7_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/7_original_saliency.jpeg"><img src="supp_eye_gaze/7_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/7_original_gaze.jpeg"><img src="supp_eye_gaze/7_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/7_output.jpeg"><img src="supp_eye_gaze/7_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/7_output_saliency.jpeg"><img src="supp_eye_gaze/7_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/7_output_gaze.jpeg"><img src="supp_eye_gaze/7_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/8_original.jpeg"><img src="supp_eye_gaze/8_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/8_original_saliency.jpeg"><img src="supp_eye_gaze/8_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/8_original_gaze.jpeg"><img src="supp_eye_gaze/8_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/8_output.jpeg"><img src="supp_eye_gaze/8_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/8_output_saliency.jpeg"><img src="supp_eye_gaze/8_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/8_output_gaze.jpeg"><img src="supp_eye_gaze/8_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/9_original.jpeg"><img src="supp_eye_gaze/9_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/9_original_saliency.jpeg"><img src="supp_eye_gaze/9_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/9_original_gaze.jpeg"><img src="supp_eye_gaze/9_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/9_output.jpeg"><img src="supp_eye_gaze/9_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/9_output_saliency.jpeg"><img src="supp_eye_gaze/9_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/9_output_gaze.jpeg"><img src="supp_eye_gaze/9_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><a href="supp_eye_gaze/10_original.jpeg"><img src="supp_eye_gaze/10_original.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/10_original_saliency.jpeg"><img src="supp_eye_gaze/10_original_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/10_original_gaze.jpeg"><img src="supp_eye_gaze/10_original_gaze.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/10_output.jpeg"><img src="supp_eye_gaze/10_output.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/10_output_saliency.jpeg"><img src="supp_eye_gaze/10_output_saliency.jpeg"  alt="" width="165"/></a></td>
+        <td>&nbsp;</td>
+        <td><a href="supp_eye_gaze/10_output_gaze.jpeg"><img src="supp_eye_gaze/10_output_gaze.jpeg"  alt="" width="165"/></a></td>
+      </tr>
+      <tr>
+        <td align="center">Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Computed Saliency on Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Measured eye-gaze on Input</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Computed Saliency on Result</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">Measured eye-gaze on Result</td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="left">&nbsp;</p>
+  <hr />
+  <p>&nbsp;</p>
+</div>
+</body>
+</html>
